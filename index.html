@@ -1,79 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To do app </title>
 </head>
+
 <body>
+    <section id="loading">Loading...</section>
+
     <section id="login">
-        <input id="login-email" type="text"/>
-        <input id="login-password" type="password"/>
+        <input id="login-email" type="text" />
+        <input id="login-password" type="password" />
         <button id="login-button">Login</button>
         <a href="#" id="go-to-register">No account yet? Register!</a>
     </section>
 
     <section id="register">
-        <input id="register-email" type="text"/>
-        <input id="register-password" type="password"/>
-        <button id="register-button">Login</button>
-        <a href="#" id="go-to-loginr">Already have an account? log In!</a>
+        <input id="register-email" type="text" />
+        <input id="register-password" type="password" />
+        <button id="register-button">register</button>
+        <a href="#" id="go-to-login">Already have an account? log In!</a>
     </section>
 
     <section id="todos">
         <ul id="todo-items-list"></ul>
-        <input id="create-todo-description" types="text"/>
+        <input id="create-todo-description" types="text" />
         <button id="create-todo-button">Create todo</button>
     </section>
 
 
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-    import { getFirestore, collection, query, where, getDocs, doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js'
-    import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js'
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyAuhoJC3WO3zCidUqh9VljAavcV9eDkF9c",
-      authDomain: "todoapp-ffcc5.firebaseapp.com",
-      projectId: "todoapp-ffcc5",
-      storageBucket: "todoapp-ffcc5.appspot.com",
-      messagingSenderId: "617516547872",
-      appId: "1:617516547872:web:4d443cb8057812e3636145",
-      measurementId: "G-11PL00MWPL"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(window.app);
-    const auth = getAuth(app);
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import { getFirestore, collection, query, where, getDocs, doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js'
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js'
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
 
-    window.fiba = {
-        //helper function 
-        isReady: function () {
-            return !!app && !!db;
-    },
-    //firebase objects
-    app,
-    //Authentication objects
-    auth,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    // FireStore objects
-    doc,
-    setDoc,
-    db,
-    collection,
-    query,
-    where,
-    getDocs
-}
-</script>
-<script defer type="text/javascript" src="./code.js"></script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyAuhoJC3WO3zCidUqh9VljAavcV9eDkF9c",
+            authDomain: "todoapp-ffcc5.firebaseapp.com",
+            projectId: "todoapp-ffcc5",
+            storageBucket: "todoapp-ffcc5.appspot.com",
+            messagingSenderId: "617516547872",
+            appId: "1:617516547872:web:4d443cb8057812e3636145",
+            measurementId: "G-11PL00MWPL"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(window.app);
+        const auth = getAuth(app);
+
+        window.fiba = {
+            //helper function 
+            isReady: function () {
+                return !!app && !!db;
+            },
+            doc,
+            app,
+            auth,
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
+            db,
+            collection,
+            query,
+            where,
+            getDocs,
+            setDoc,
+        }
+    </script>
+    <script defer type="text/javascript" src="./code.js"></script>
 </body>
+
 </html>
